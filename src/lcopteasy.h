@@ -509,6 +509,11 @@ OPT_ENTRY(hsts_ctrl,          HSTS_CTRL,          LNG, 0, 0)
 OPT_ENTRY(hsts,               HSTS,               STR, 0, LCURL_DEFAULT_VALUE)
 #endif
 
+#if LCURL_CURL_VER_GE(7,85,0)
+OPT_ENTRY( protocols_str,		   PROTOCOLS_STR,			 STR, 0,                  CURLPROTO_ALL )
+OPT_ENTRY( redir_protocols_str,    REDIR_PROTOCOLS_STR,      STR, 0,                  CURLPROTO_ALL ) /*! @fixme All protocols except for FILE and SCP */
+#endif
+
 //{ Restore system macros
 
 #ifdef LCURL__TCP_FASTOPEN

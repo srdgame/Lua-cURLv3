@@ -200,6 +200,8 @@ static int lcurl_easy_cleanup_storage(lua_State *L, lcurl_easy_t *p){
   for(i = 0; i < LCURL_LIST_COUNT; ++i){
     p->lists[i] = LUA_NOREF;
   }
+
+  return 0;
 }
 
 static int lcurl_easy_cleanup(lua_State *L){
