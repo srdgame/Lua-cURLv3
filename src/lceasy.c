@@ -488,13 +488,17 @@ static int lcurl_opt_set_blob_(lua_State *L, int opt){
   return lcurl_opt_set_long_(L, CURLOPT_##N);\
 }
 
+#if LCURL_CURL_VER_GE(7,59,0)
 #define LCURL_OFF_OPT(N, S) static int lcurl_easy_set_##N(lua_State *L){\
   return lcurl_opt_set_off_(L, CURLOPT_##N);\
 }
+#endif
 
+#if LCURL_CURL_VER_GE(7,73,0)
 #define LCURL_BLB_OPT(N, S) static int lcurl_easy_set_##N(lua_State *L){\
   return lcurl_opt_set_blob_(L, CURLOPT_##N); \
 }
+#endif
 
 #define OPT_ENTRY(L, N, T, S, D) LCURL_##T##_OPT(N, S)
 
@@ -727,13 +731,17 @@ static int lcurl_opt_unset_blob_(lua_State *L, int opt){
   return lcurl_opt_unset_long_(L, CURLOPT_##N, (D));\
 }
 
+#if LCURL_CURL_VER_GE(7,59,0)
 #define LCURL_OFF_OPT(N, S, D) static int lcurl_easy_unset_##N(lua_State *L){\
   return lcurl_opt_unset_off_(L, CURLOPT_##N, (D));\
 }
+#endif
 
+#if LCURL_CURL_VER_GE(7,73,0)
 #define LCURL_BLB_OPT(N, S, D) static int lcurl_easy_unset_##N(lua_State *L){\
   return lcurl_opt_unset_blob_(L, CURLOPT_##N);\
 }
+#endif
 
 #define OPT_ENTRY(L, N, T, S, D) LCURL_##T##_OPT(N, S, D)
 

@@ -489,7 +489,7 @@ FLG_ENTRY( PROGRESSFUNC_CONTINUE )
 OPT_ENTRY(mail_rcpt_alllowfails,   MAIL_RCPT_ALLLOWFAILS,     LNG, 0, 1)
 #endif
 
-#if LCURL_CURL_VER_GE(7,71,0)
+#if LCURL_CURL_VER_GE(7,73,0)
 OPT_ENTRY(sslcert_blob,       SSLCERT_BLOB,       BLB, 0, 0)
 OPT_ENTRY(sslkey_blob,        SSLKEY_BLOB,        BLB, 0, 0)
 OPT_ENTRY(proxy_sslcert_blob, PROXY_SSLCERT_BLOB, BLB, 0, 0)
